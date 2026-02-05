@@ -1,19 +1,67 @@
-
 ---
 cluster: 
-  - "ascend"
-  - "pitzer"
+  - "chemfarm"
 form:
-  - auto_accounts
-  - bc_num_hours
   - working_dir
-  - auto_modules_app_code_server
+  - cs_server
+  - queue
+  - mem
+  - num_cpus
+  - num_gpus
+  - bc_num_hours
 attributes:
-  auto_modules_app_code_server:
-    default: false
+  cs_server:
+    widget: select
+    label: "Code Server Version"
+    value: "4.108.2"
+    help: |
+      Loading the required version of code server
+    options:
+      - ["Code Server 4.108.2", "4.108.2"]
   working_dir:
     widget: "path_selector"
     label: "Working Directory"
     data-target-file-type: dirs  # Valid values are: files, dirs, or both
     readonly: false
     help: "Select your project directory; defaults to $HOME"
+  queue:
+    widget: select
+    label: "Queue"
+    value: "short"
+    options:
+      - [ "Short",  "short",
+    data-max-num-cpus: 96, data-min-num-cpus: 1, data-label-num-cpus: 'Number of CPUs (1-96)',
+    data-max-mem: 64, data-min-mem: 1, data-label-mem: 'Memory amount, GB (1-64)',
+    data-hide-num-gpus: true,
+    data-max-bc-num-hours: 1, data-min-bc-num-hours: 1,  data-label-bc-num-hours: 'Walltime, hours (1-1)']
+      - [ "Private","medium",
+    data-max-num-cpus: 256, data-min-num-cpus: 1, data-label-num-cpus: 'Number of CPUs (1-256)',
+    data-max-mem: 1500, data-min-mem: 1, data-label-mem: 'Memory amount in GB (1-1500)',
+    data-hide-num-gpus: true,
+    data-max-bc-num-hours: 120, data-min-bc-num-hours: 1,  data-label-bc-num-hours: 'Walltime, hours (1-120)']
+      - [ "Public", "p72",
+    data-max-num-cpus: 256, data-min-num-cpus: 8, data-label-num-cpus: 'Number of CPUs (8-256)',
+    data-max-mem: 1500, data-min-mem: 1, data-label-mem: 'Memory amount in GB (1-1500)',
+    data-hide-num-gpus: true,
+    data-max-bc-num-hours: 72, data-min-bc-num-hours: 1,  data-label-bc-num-hours: 'Walltime, hours (1-72)']
+      - [ "GPU",    "gpuq", 
+    data-max-num-cpus: 16,  data-min-num-cpus: 1, data-label-num-cpus: 'Number of CPUs (1-16)',
+    data-max-mem: 750,  data-min-mem: 1, data-label-mem: 'Memory amount in GB (1-750)',
+    data-max-num-gpus: 8, data-min-num-gpus: 1, data-label-num-gpus: 'Number of GPUs (1-8)',
+    data-max-bc-num-hours: 120, data-min-bc-num-hours: 1,  data-label-bc-num-hours: 'Walltime, hours (1-120)']
+  num_cpus:
+    widget: "number_field"
+    label: "Number of cores"
+    value: 1
+    step: 1
+  mem:
+    widget: "number_field"
+    label: "Memory amount, GB"
+    value: 1
+    step: 1
+  num_gpus:
+    widget: "number_field"
+    label: "Number of GPUs"
+    value: 1
+    step: 1
+ 
