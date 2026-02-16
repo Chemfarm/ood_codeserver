@@ -34,12 +34,17 @@ attributes:
     data-max-mem: 64, data-min-mem: 1, data-label-mem: 'Memory amount, GB (1-64)',
     data-hide-num-gpus: true,
     data-max-bc-num-hours: 1, data-min-bc-num-hours: 1,  data-label-bc-num-hours: 'Walltime, hours (1-1)']
-      - [ "Private","medium",
+      - [ "Medium", "medium",
     data-max-num-cpus: 256, data-min-num-cpus: 1, data-label-num-cpus: 'Number of CPUs (1-256)',
     data-max-mem: 1500, data-min-mem: 1, data-label-mem: 'Memory amount in GB (1-1500)',
     data-hide-num-gpus: true,
-    data-max-bc-num-hours: 120, data-min-bc-num-hours: 1,  data-label-bc-num-hours: 'Walltime, hours (1-120)']
-      - [ "Public", "p72",
+    data-max-bc-num-hours: 48, data-min-bc-num-hours: 1,  data-label-bc-num-hours: 'Walltime, hours (1-120)']
+      - [ "Long", "long",
+    data-max-num-cpus: 256, data-min-num-cpus: 1, data-label-num-cpus: 'Number of CPUs (1-256)',
+    data-max-mem: 1500, data-min-mem: 1, data-label-mem: 'Memory amount in GB (1-1500)',
+    data-hide-num-gpus: true,
+    data-max-bc-num-hours: 1440, data-min-bc-num-hours: 1,  data-label-bc-num-hours: 'Walltime, hours (1-120)']
+      - [ "P72", "p72",
     data-max-num-cpus: 256, data-min-num-cpus: 8, data-label-num-cpus: 'Number of CPUs (8-256)',
     data-max-mem: 1500, data-min-mem: 1, data-label-mem: 'Memory amount in GB (1-1500)',
     data-hide-num-gpus: true,
