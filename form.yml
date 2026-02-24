@@ -13,11 +13,12 @@ attributes:
   cs_server:
     widget: select
     label: "Code Server Version"
-    value: "4.108.2"
+    value: "4.109.2-linux-amd64"
     help: |
       Loading the required version of code server
     options:
       - ["Code Server 4.108.2", "4.108.2"]
+      - ["Code Server 4.109.2", "4.109.2-linux-amd64"]
   working_dir:
     widget: "path_selector"
     label: "Working Directory"
